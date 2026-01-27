@@ -53,6 +53,7 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.constraintlayout.core)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -61,16 +62,13 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
-    // Room
-    implementation(libs.room.ktx)
-    implementation(libs.room.viewmodel)
-    implementation(libs.room.lifecycle)
-    implementation(libs.room.runtime)
-    ksp(libs.room.compiler.ksp)
-
     // Hilt
     implementation(libs.hilt.android)
     implementation(libs.hilt.compose)
     ksp(libs.hilt.compiler.ksp)
+
+    implementation("androidx.datastore:datastore-preferences:1.2.0")
+
+           // implementation(libs.androidx.datastore)
 
 }
