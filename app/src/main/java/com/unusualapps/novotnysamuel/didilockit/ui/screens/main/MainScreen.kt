@@ -11,6 +11,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 @Composable
 fun MainScreen(
@@ -24,12 +26,18 @@ fun MainScreen(
         else -> false
     }
 
+    val time = when (val s = uiState) {
+        is MainScreenUIState.Success -> s.timeOfLock
+        else -> "Unknown"
+    }
+
     BaseScreen(
         topBarText = "Did I Lock It?",
     ) { padding ->
         MainScreenContent(
             paddingValues = padding,
             isLocked = isLocked,
+            lastChange = time,
             onButtonClick = { viewModel.onButtonClick() },
         )
     }
@@ -39,11 +47,14 @@ fun MainScreen(
 fun MainScreenContent(
     paddingValues: PaddingValues,
     isLocked: Boolean,
+    lastChange: String,
     onButtonClick: () -> Unit,
 ){
     Column(modifier = Modifier.padding(paddingValues)) {
         Button(onClick = onButtonClick) {
             Text(text = if (isLocked) "LOCKED" else "UNLOCKED")
         }
+
+        Text(text = "Poslední změna: $lastChange")
     }
 }

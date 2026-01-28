@@ -16,8 +16,8 @@ import javax.inject.Inject
 @HiltViewModel
 class MainScreenViewModel @Inject constructor(private val repository: IDataStoreRepository) : ViewModel(){
 
-    val mainScreenUIState: StateFlow<MainScreenUIState> = repository.isLocked
-        .map { isLocked -> MainScreenUIState.Success(isLocked) }
+    val mainScreenUIState: StateFlow<MainScreenUIState> = repository.lockStatus
+        .map { lockStatus -> MainScreenUIState.Success(lockStatus.isLocked, lockStatus.timeOfChange) }
         .stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(5000),

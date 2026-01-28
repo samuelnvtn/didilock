@@ -1,9 +1,11 @@
 package com.unusualapps.novotnysamuel.didilockit.datastore
 
+import com.unusualapps.novotnysamuel.didilockit.model.LockStatus
 import kotlinx.coroutines.flow.Flow
 
 interface IDataStoreRepository {
 
-    val isLocked: Flow<Boolean>
+    val lockStatus: Flow<LockStatus>
+
     suspend fun toggleLock()
 }
