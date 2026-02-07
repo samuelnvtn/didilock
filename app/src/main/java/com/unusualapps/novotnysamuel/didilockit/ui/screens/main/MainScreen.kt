@@ -46,7 +46,7 @@ fun MainScreen(
 
     val time = when (val s = uiState) {
         is MainScreenUIState.Success -> s.timeOfLock
-        else -> "Unknown"
+        else -> "7.2.2026"
     }
 
     BaseScreen(
