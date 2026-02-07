@@ -4,5 +4,6 @@ very simple minimalistic app for people with OCD inspired by https://www.tiktok.
 
 used as an exercise for utilizing MVVM architecture and Datastore.
 
-![Image 1](./screenshots/didlockit.png)
-![Image 2](./screenshots/didilockit2.png)
+| Lock is locked | Lock is unlocked |
+| :---: | :---: |
+| <img src="./screenshots/didlockit.png" width="50%" /> | <img src="./screenshots/didilockit2.png" width="50%" /> |
