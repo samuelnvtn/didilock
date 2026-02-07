@@ -6,13 +6,18 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.unusualapps.novotnysamuel.didilockit.ui.elements.PlaceHolderScreen
 import com.unusualapps.novotnysamuel.didilockit.ui.elements.PlaceholderScreenContent
+import com.unusualapps.novotnysamuel.didilockit.ui.theme.Background
+import com.unusualapps.novotnysamuel.didilockit.ui.theme.backgroundColor
+import com.unusualapps.novotnysamuel.didilockit.ui.theme.textColor
 
 const val TestTagBackButton = "TestTagBackButton"
 
@@ -30,20 +35,21 @@ fun BaseScreen(
         Scaffold(
             floatingActionButton = floatingActionButton,
             topBar = {
-                TopAppBar(
-                    title = {
+                CenterAlignedTopAppBar(
+                            title = {
                         if (topBarText != null) {
                             Text(
                                 text = topBarText,
+                                color = textColor(),
                                 style = MaterialTheme.typography.titleLarge,
                                 maxLines = 1,
                                 overflow = TextOverflow.Ellipsis,
                                 modifier = Modifier
-                                    .padding(start = 0.dp)
+                                    .padding(start = 0.dp),
                             )
                         }
                     },
-                    colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.background),
+                    colors = TopAppBarDefaults.topAppBarColors(containerColor = backgroundColor()),
                     actions = actions,
                     navigationIcon = {
                         if (onBackClick != null) {

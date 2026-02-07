@@ -29,7 +29,7 @@ class DataStoreRepositoryImpl(private val context: Context) : IDataStoreReposito
             val currentStatus = preferences[isLockedKey] ?: false
             preferences[isLockedKey] = !currentStatus
 
-            val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss")
+            val formatter = DateTimeFormatter.ofPattern("HH:mm:ss")
             val currentTime = LocalDateTime.now().format(formatter)
             preferences[timeKey] = currentTime
         }
